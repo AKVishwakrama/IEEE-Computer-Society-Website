@@ -1,0 +1,73 @@
+.abt-story { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.abt-story__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
+
+/* Glass card */
+.abt-glass {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--surface-border);
+  border-radius: 22px;
+  padding: 2.5rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+[data-theme="light"] .abt-glass { background: rgba(255,255,255,0.8); box-shadow: 0 8px 40px rgba(0,0,0,0.07); }
+.abt-glass:hover { border-color: var(--gold-border); box-shadow: var(--shadow-gold); transform: translateY(-6px); }
+
+.abt-glass__bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.abt-glass__shimmer {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(245,197,24,0.04) 50%, transparent 100%);
+  opacity: 0; transition: opacity 0.4s; pointer-events: none; border-radius: 22px;
+}
+.abt-glass:hover .abt-glass__shimmer { opacity: 1; }
+
+.abt-glass__logo-row { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.25rem; }
+.abt-glass__ieee-img { height: 56px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(245,197,24,0.2)); }
+.abt-glass__mits-img { height: 56px; width: auto; object-fit: contain; }
+.abt-glass__title { font-weight: 800; font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.3rem; }
+.abt-glass__year { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.07em; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--surface-border); }
+
+.abt-glass__stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+.abt-glass__stat { text-align: center; background: var(--surface-hover); border-radius: 10px; padding: 0.75rem 0.5rem; }
+.abt-glass__stat-val { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); line-height: 1; }
+.abt-glass__stat-lbl { font-size: 0.68rem; color: var(--text-muted); font-weight: 500; }
+.abt-glass__tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+/* MVV */
+.abt-mvv { background: var(--bg-primary); position: relative; overflow: hidden; }
+.abt-mvv__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; position: relative; z-index: 1; }
+.abt-mvv__card {
+  background: var(--surface-card); border: 1px solid var(--surface-border);
+  border-radius: 18px; padding: 2rem; position: relative; overflow: hidden;
+  transition: all 0.3s ease;
+}
+.abt-mvv__card:hover { border-color: var(--gold-border); transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.abt-mvv__card--gold { background: var(--bg-secondary); border-color: var(--gold-border); }
+.abt-mvv__card-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: var(--gold-light); color: var(--gold); border-radius: 13px; margin-bottom: 1.25rem; transition: all 0.25s; }
+.abt-mvv__card:hover .abt-mvv__card-icon { background: var(--gold); color: #0D0D12; }
+.abt-mvv__card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 0.75rem; }
+.abt-mvv__card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+.abt-mvv__card-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform 0.35s ease; }
+.abt-mvv__card:hover .abt-mvv__card-line { transform: scaleX(1); }
+
+/* Global */
+.abt-global { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.abt-global__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
+.abt-global__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--surface-border); border-radius: 16px; overflow: hidden; border: 1px solid var(--surface-border); }
+.abt-global__stat { background: var(--surface-card); padding: 2rem; text-align: center; transition: background 0.2s; }
+.abt-global__stat:hover { background: var(--gold-light); }
+.abt-global__stat-val { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+.abt-global__stat-lbl { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
+
+@media (max-width: 1024px) {
+  .abt-story__inner, .abt-global__inner { grid-template-columns: 1fr; gap: 3rem; }
+  .abt-mvv__grid { grid-template-columns: 1fr; }
+}

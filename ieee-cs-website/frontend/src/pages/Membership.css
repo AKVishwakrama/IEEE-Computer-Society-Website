@@ -1,0 +1,24 @@
+.mem-benefits-section { background: var(--bg-primary); position: relative; overflow: hidden; }
+.mem-benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+.mem-benefit-card { background: var(--surface-card); border: 1px solid var(--surface-border); border-radius: 16px; padding: 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; position: relative; overflow: hidden; transition: all 0.3s ease; }
+.mem-benefit-card:hover { border-color: var(--gold-border); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.mem-benefit-card__icon { flex-shrink: 0; width: 48px; height: 48px; background: var(--gold-light); color: var(--gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.25s; }
+.mem-benefit-card:hover .mem-benefit-card__icon { background: var(--gold); color: #0D0D12; }
+.mem-benefit-card__title { font-family: 'Playfair Display', serif; font-size: 1.08rem; color: var(--text-primary); margin-bottom: 0.4rem; }
+.mem-benefit-card__desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.7; }
+.mem-benefit-card__line { position: absolute; bottom:0;left:0;right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); transform:scaleX(0); transition:transform 0.35s; }
+.mem-benefit-card:hover .mem-benefit-card__line { transform:scaleX(1); }
+
+.mem-form-section { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.mem-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start; }
+.mem-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: calc(var(--nav-height) + 1.5rem); }
+.mem-info-card { background: var(--surface-card); border: 1px solid var(--surface-border); border-radius: 16px; padding: 1.75rem; }
+.mem-info-card--dark { background: var(--bg-tertiary); border-color: var(--gold-border); }
+.mem-info-card__logos { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.mem-info-logo { height: 40px; width: auto; object-fit: contain; }
+.mem-info-card h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+.mem-info-card p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+.mem-checklist { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.mem-checklist li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.86rem; color: var(--text-secondary); }
+.mem-checklist li svg { color: var(--success); flex-shrink: 0; }
+@media (max-width: 900px) { .mem-layout { grid-template-columns: 1fr; } .mem-sidebar { position: static; } .mem-benefits-grid { grid-template-columns: 1fr; } }

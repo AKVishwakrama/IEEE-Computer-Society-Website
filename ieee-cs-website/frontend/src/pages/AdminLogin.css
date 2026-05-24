@@ -1,0 +1,50 @@
+.al-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 2rem;
+  background-image:
+    linear-gradient(rgba(245,197,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,197,24,0.04) 1px, transparent 1px);
+  background-size: 55px 55px;
+}
+
+.al-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.al-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.al-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.al-logo { object-fit: contain; }
+.al-logo--ieee { height: 60px; width: auto; filter: drop-shadow(0 2px 8px rgba(245,197,24,0.2)); }
+.al-logo--mits { height: 60px; width: auto; }
+
+.al-logo-divider { width: 1px; height: 50px; background: var(--surface-border); }
+
+.al-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-primary); text-align: center; margin-bottom: 0.3rem; }
+.al-sub   { font-size: 0.88rem; color: var(--text-muted); text-align: center; margin-bottom: 2rem; }
+.al-hint  { font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 1rem; }
