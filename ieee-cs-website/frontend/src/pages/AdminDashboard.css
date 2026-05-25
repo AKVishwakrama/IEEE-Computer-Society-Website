@@ -90,7 +90,8 @@
 .adm-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 960px;
+  min-width: 760px;
+  table-layout: fixed;
 }
 
 .adm-table th,
@@ -100,6 +101,9 @@
   text-align: left;
   font-size: 0.95rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .adm-table th {
@@ -110,6 +114,37 @@
 
 .adm-table tr:hover td {
   background: rgba(245,197,24,0.04);
+}
+
+/* Set sensible column widths for membership & registration tables */
+.adm-table th:nth-child(1) { width: 18%; }
+.adm-table th:nth-child(2) { width: 20%; }
+.adm-table th:nth-child(3) { width: 14%; }
+.adm-table th:nth-child(4) { width: 10%; }
+.adm-table th:nth-child(5) { width: 8%; }
+.adm-table th:nth-child(6) { width: 8%; }
+.adm-table th:nth-child(7) { width: 7%; }
+.adm-table th:nth-child(8) { width: 15%; }
+
+/* Make table header sticky for long lists */
+.adm-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.adm-table-wrap { padding: 0.6rem; }
+
+/* Toolbar: keep select compact and buttons grouped */
+.adm-table-toolbar { gap: 1rem; }
+.adm-table-toolbar > p { margin: 0; color: var(--text-secondary); }
+.adm-table-toolbar select.adm-event-select { min-width: 200px; }
+
+@media (max-width: 900px) {
+  .adm-table { table-layout: auto; min-width: 640px; }
+  .adm-table th, .adm-table td { white-space: normal; }
 }
 
 .adm-table-empty {

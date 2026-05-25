@@ -55,6 +55,7 @@ export default function AdminDashboard() {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [loadingEvents, setLoadingEvents] = useState(false);
   const [loadingMemberships, setLoadingMemberships] = useState(false);
+  const [membershipFilter, setMembershipFilter] = useState<'all' | string>('all');
   const [loadingRegistrations, setLoadingRegistrations] = useState(false);
 
   if (!user) return <Navigate to="/admin/login" />;
@@ -210,13 +211,40 @@ export default function AdminDashboard() {
             <h2 className="adm-section-title">Membership Applications</h2>
             <div className="adm-table-toolbar">
               <p>{loadingMemberships ? 'Loading membership applications…' : `${memberships.length} application(s) received.`}</p>
-              <button
-                className="btn btn-outline btn--sm"
-                disabled={memberships.length === 0}
-                onClick={() => downloadCSV(memberships, membershipColumns, 'membership-applications.csv')}
-              >
-                <Download size={16} /> Export CSV
-              </button>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <select
+                  className="adm-event-select"
+                  value={membershipFilter}
+                  onChange={(e) => setMembershipFilter(e.target.value as any)}
+                  disabled={loadingMemberships || memberships.length === 0}
+                >
+                  <option value="all">All types</option>
+                  <option value="student">Student</option>
+                  <option value="associate">Associate</option>
+                  <option value="full">Full</option>
+                  <option value="senior">Senior</option>
+                </select>
+
+                <button
+                  className="btn btn-outline btn--sm"
+                  disabled={memberships.length === 0}
+                  onClick={() => downloadCSV(
+                    membershipFilter === 'all' ? memberships : memberships.filter(m => m.membership_type === membershipFilter),
+                    membershipColumns,
+                    membershipFilter === 'all' ? 'membership-applications.csv' : `membership-${membershipFilter}.csv`
+                  )}
+                >
+                  <Download size={16} /> Export CSV
+                </button>
+
+                <button
+                  className="btn btn-primary btn--sm"
+                  disabled={memberships.filter(m => m.membership_type === 'senior').length === 0}
+                  onClick={() => downloadCSV(memberships.filter(m => m.membership_type === 'senior'), membershipColumns, 'membership-seniors.csv')}
+                >
+                  <Download size={16} /> Export Seniors
+                </button>
+              </div>
             </div>
             <div className="adm-table-wrap">
               <table className="adm-table">
@@ -226,7 +254,7 @@ export default function AdminDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {memberships.map((app) => (
+                  {(membershipFilter === 'all' ? memberships : memberships.filter(m => m.membership_type === membershipFilter)).map((app) => (
                     <tr key={app.id}>
                       <td>{app.name}</td>
                       <td>{app.email}</td>

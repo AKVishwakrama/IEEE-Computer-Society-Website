@@ -47,6 +47,25 @@
   animation: float 11s ease-in-out infinite reverse;
 }
 
+/* Optional hero background photo (drop image at public/hero-bg.jpg) */
+.hero__bg-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.12;
+  filter: saturate(0.8) contrast(0.85) blur(1px);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 900px) {
+  .hero__bg-photo { display: none; }
+}
+
 .hero__body {
   position: relative;
   z-index: 1;

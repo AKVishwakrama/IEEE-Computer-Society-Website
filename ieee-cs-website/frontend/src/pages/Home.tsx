@@ -69,6 +69,9 @@ export default function Home() {
         {/* Grid texture overlay */}
         <div className="hero__grid-texture" />
 
+        {/* Optional background photo (place image at /hero-bg.jpg in public/) */}
+        <div className="hero__bg-photo" aria-hidden="true" />
+
         {/* Glows */}
         <div className="hero__glow hero__glow--1" />
         <div className="hero__glow hero__glow--2" />
