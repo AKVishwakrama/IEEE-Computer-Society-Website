@@ -8,20 +8,83 @@ interface GalleryImage { id: string; title: string; description: string; image_u
 
 const CATS = ['All','events','workshops','hackathons','team','general'];
 
+// ── Real Event Photos ──────────────────────────────────────────────────────────
+// Place these images in your project's public folder
+// (or adjust paths to match your asset structure, e.g. /src/assets/gallery/)
 const DEMO: GalleryImage[] = [
-  { id:'1',  title:'Hackathon 2025',        description:'Teams competing', image_url:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80', category:'hackathons' },
-  { id:'2',  title:'React Workshop',        description:'Hands-on session', image_url:'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80', category:'workshops' },
-  { id:'3',  title:'Tech Talk',             description:'Industry seminar', image_url:'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80', category:'events' },
-  { id:'4',  title:'Team Photo 2025',       description:'IEEE CS team', image_url:'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80', category:'team' },
-  { id:'5',  title:'Coding Competition',    description:'Annual contest', image_url:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=700&q=80', category:'events' },
-  { id:'6',  title:'AI Workshop',           description:'ML workshop', image_url:'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&q=80', category:'workshops' },
-  { id:'7',  title:'Award Ceremony',        description:'Recognising contributions', image_url:'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=700&q=80', category:'events' },
-  { id:'8',  title:'Technical Fest',        description:'Annual techfest', image_url:'https://images.unsplash.com/photo-1560439514-4e9645039924?w=700&q=80', category:'events' },
-  { id:'9',  title:'Networking Session',    description:'Industry networking', image_url:'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=700&q=80', category:'general' },
-  { id:'10', title:'Inauguration',          description:'Chapter ceremony', image_url:'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80', category:'events' },
-  { id:'11', title:'Cybersecurity Talk',    description:'Ethical hacking talk', image_url:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=700&q=80', category:'workshops' },
-  { id:'12', title:'Leadership Meet',       description:'Core team session', image_url:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80', category:'team' },
+  {
+    id: '1',
+    title: 'Inauguration Ceremony',
+    description: 'Official inauguration ceremony of the IEEE Computer Society Student Branch Chapter with faculty members and students.',
+    image_url: '/photo1.jpeg',
+    category: 'events',
+    event_title: 'IEEE CS SBC Inauguration',
+  },
+
+  {
+    id: '2',
+    title: 'Technical Talk',
+    description: 'Interactive technical talk session conducted for students on emerging technologies and innovation.',
+    image_url: '/photo3.jpeg',
+    category: 'workshops',
+    event_title: 'ContriNITUK 2025',
+  },
+
+  {
+    id: '3',
+    title: 'Inauguration Ceremony',
+    description: 'Lighting ceremony and welcome session during the IEEE CS chapter inauguration event.',
+    image_url: '/photo6.jpeg',
+    category: 'events',
+    event_title: 'ContriNITUK 2025',
+  },
+
+  {
+    id: '4',
+    title: 'Team Members',
+    description: 'IEEE Computer Society core team members gathered together during the chapter event.',
+    image_url: '/photo9.jpeg',
+    category: 'team',
+    event_title: 'IEEE CS Event',
+  },
+
+  {
+    id: '5',
+    title: 'Frontend Battle',
+    description: 'Students participating enthusiastically in the frontend web development competition event.',
+    image_url: '/photo10.jpeg',
+    category: 'events',
+    event_title: 'Frontend Battle 2025',
+  },
+
+  {
+    id: '6',
+    title: 'Inauguration Ceremony',
+    description: 'Oath-taking and introduction session for newly elected IEEE CS office bearers.',
+    image_url: '/photo12.jpeg',
+    category: 'events',
+    event_title: 'IEEE CS SBC Inauguration',
+  },
+
+  {
+    id: '7',
+    title: 'Frontend Battle',
+    description: 'Participants presenting innovative frontend projects and UI designs during the competition.',
+    image_url: '/photo13.jpeg',
+    category: 'events',
+    event_title: 'Frontend Battle 2025',
+  },
+
+  {
+    id: '8',
+    title: 'Winning Ceremony',
+    description: 'Prize distribution and recognition ceremony for winners and participants of the event.',
+    image_url: '/photo16.jpeg',
+    category: 'events',
+    event_title: 'Technical Workshop',
+  },
 ];
+// ──────────────────────────────────────────────────────────────────────────────
 
 /* 3-D Rotating Carousel */
 function Carousel3D({ images }: { images: GalleryImage[] }) {
@@ -181,21 +244,3 @@ export default function Gallery() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
