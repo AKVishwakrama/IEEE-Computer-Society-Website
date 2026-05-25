@@ -95,7 +95,7 @@ cd frontend && npm run dev
 ## 🔑 Default Admin Login
 
 ```
-Email:    admin@ieeecs.edu
+Email:    ieeecsmits@gmail.com
 Password: admin@ieee123
 ```
 

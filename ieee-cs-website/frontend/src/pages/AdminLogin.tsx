@@ -18,8 +18,9 @@ export default function AdminLogin() {
       await login(email, password);
       toast.success('Welcome back!');
       navigate('/admin');
-    } catch {
-      toast.error('Invalid credentials');
+    } catch (error: any) {
+      const message = error?.response?.data?.message || 'Invalid credentials';
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -41,7 +42,7 @@ export default function AdminLogin() {
         <form onSubmit={submit}>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" value={email} onChange={e=>setEmail(e.target.value)} required placeholder="admin@ieeecs.edu" />
+            <input type="email" value={email} onChange={e=>setEmail(e.target.value)} required placeholder="ieeecsmits@gmail.com" />
           </div>
           <div className="form-group">
             <label>Password</label>
@@ -52,7 +53,7 @@ export default function AdminLogin() {
           </button>
         </form>
 
-        <p className="al-hint">Default: admin@ieeecs.edu / admin@ieee123</p>
+        <p className="al-hint">Default: ieeecsmits@gmail.com / admin@ieee123</p>
       </div>
     </div>
   );

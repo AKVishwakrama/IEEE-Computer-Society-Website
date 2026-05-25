@@ -51,6 +51,7 @@ export default function Home() {
     const onScroll = () => {
       if (heroRef.current) {
         heroRef.current.style.setProperty('--py', `${window.scrollY * 0.35}px`);
+        heroRef.current.style.setProperty('--py-card', `${window.scrollY * 0.16}px`);
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -73,45 +74,94 @@ export default function Home() {
         <div className="hero__glow hero__glow--2" />
 
         <div className="container hero__body">
-          {/* Eyebrow */}
-          <div className="hero__eyebrow animate-fade-up">
-            <span className="hero__eyebrow-dot" />
-            <span>IEEE Computer Society — Student Chapter</span>
+          <div className="hero__content">
+            {/* Eyebrow */}
+            <div className="hero__eyebrow animate-fade-up">
+              <span className="hero__eyebrow-dot" />
+              <span>IEEE Computer Society — Student Chapter</span>
+            </div>
+
+            {/* Main title — Anubhava style: big Bebas with italic serif mix */}
+            <h1 className="hero__title">
+              <span className="hero__title-line hero__title-line--1">Build.</span>
+              <span className="hero__title-line hero__title-line--2">
+                Inno<em>vate</em>.
+              </span>
+              <span className="hero__title-line hero__title-line--3">Lead.</span>
+            </h1>
+
+            <p className="hero__sub">
+              Where computer science students come to learn, compete,<br className="hero__br" />
+              and shape the future of technology.
+            </p>
+
+            <div className="hero__cta">
+              <Link to="/events" className="btn btn-primary hero__cta-main">
+                Explore Events <ArrowRight size={17} />
+              </Link>
+              <Link to="/membership" className="btn btn-outline hero__cta-sec">
+                Join IEEE CS
+              </Link>
+            </div>
+
+            {/* Floating glass stat cards */}
+            <div className="hero__stats">
+              {STATS.map(({ icon: Icon, value, label }) => (
+                <div className="hero__stat-pill" key={label}>
+                  <Icon size={14} />
+                  <span className="hero__stat-value">{value}</span>
+                  <span className="hero__stat-label">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Main title — Anubhava style: big Bebas with italic serif mix */}
-          <h1 className="hero__title">
-            <span className="hero__title-line hero__title-line--1">Build.</span>
-            <span className="hero__title-line hero__title-line--2">
-              Inno<em>vate</em>.
-            </span>
-            <span className="hero__title-line hero__title-line--3">Lead.</span>
-          </h1>
-
-          <p className="hero__sub">
-            Where computer science students come to learn, compete,<br className="hero__br" />
-            and shape the future of technology.
-          </p>
-
-          <div className="hero__cta">
-            <Link to="/events" className="btn btn-primary hero__cta-main">
-              Explore Events <ArrowRight size={17} />
-            </Link>
-            <Link to="/membership" className="btn btn-outline hero__cta-sec">
-              Join IEEE CS
-            </Link>
-          </div>
-
-          {/* Floating glass stat cards */}
-          <div className="hero__stats">
-            {STATS.map(({ icon: Icon, value, label }) => (
-              <div className="hero__stat-pill" key={label}>
-                <Icon size={14} />
-                <span className="hero__stat-value">{value}</span>
-                <span className="hero__stat-label">{label}</span>
+          <aside className="hero__preview animate-fade-up">
+            <div className="hero__preview-stack">
+              <div className="hero__preview-card hero__preview-card--tertiary animate-fade-up">
+                <div className="hero__preview-badge hero__preview-badge--alt">Past session</div>
+                <h2 className="hero__preview-title">Career Blueprint session</h2>
+                <p className="hero__preview-copy">
+                  By Deloitte MD Sandeep Mishra sir on 26 March 2026, with 200+ registrations and career insights for students.
+                </p>
+                <div className="hero__preview-meta">
+                  <div>
+                    <span>200+ registrations</span>
+                  </div>
+                  <div>
+                    <span>26 March 2026</span>
+                  </div>
+                </div>
+                <div className="hero__preview-tags">
+                  <span className="tag">Career</span>
+                  <span className="tag">Industry</span>
+                  <span className="tag">Leadership</span>
+                </div>
               </div>
-            ))}
-          </div>
+
+
+              <div className="hero__preview-card hero__preview-card--primary animate-fade-up">
+                <div className="hero__preview-badge">Featured event</div>
+                <h2 className="hero__preview-title">Frontend Battle 12</h2>
+                <p className="hero__preview-copy">
+                  One-day frontend challenge for students, with live review, mentorship, and product demos.
+                </p>
+                <div className="hero__preview-meta">
+                  <div>
+                    <span>500+ registrations</span>
+                  </div>
+                  <div>
+                    <span>28 March 2026</span>
+                  </div>
+                </div>
+                <div className="hero__preview-tags">
+                  <span className="tag">Frontend</span>
+                  <span className="tag">Design</span>
+                  <span className="tag">One-Day</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
 
         {/* Scroll cue */}

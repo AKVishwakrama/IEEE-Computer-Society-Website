@@ -12,22 +12,22 @@ const seed = async () => {
       INSERT INTO users (name, email, password_hash, role)
       VALUES ($1, $2, $3, $4)
       ON CONFLICT (email) DO NOTHING
-    `, ['IEEE CS Admin', 'admin@ieeecs.ac.in', passwordHash, 'admin']);
+    `, ['IEEE CS Admin', 'ieeecsmits@gmail.com', passwordHash, 'admin']);
 
     // Sample events
     const events = [
       {
-        title: 'Tech Talk: AI & Machine Learning Trends 2026',
-        description: 'Join us for an enlightening session on the latest advancements in Artificial Intelligence and Machine Learning. Industry experts will share insights on cutting-edge research, real-world applications, and career opportunities in the field.',
+        title: 'Career Insights:  Blueprint 2026',
+        description: 'Join us for an enlightening session on career roadmap. Industry experts will share in career opportunities in the field.',
         short_description: 'Explore the latest AI & ML trends with industry experts.',
         event_type: 'seminar',
-        status: 'upcoming',
-        date: '2026-06-15',
-        time: '10:00:00',
-        venue: 'Seminar Hall A, Main Building',
+        status: 'completed',
+        date: '2026-03-26',
+        time: '04:00:00',
+        venue: 'Student Activity Center (SAC)',
         is_online: false,
         max_participants: 200,
-        tags: ['AI', 'Machine Learning', 'Tech Talk'],
+        tags: ['Roadmap', 'AI impact on career', 'Tech Talk'],
         is_featured: true,
       },
       {
@@ -82,11 +82,7 @@ const seed = async () => {
       { name: 'Gagandeep Kushwaah', position: 'Vice Chairperson', department: 'Computer Science', year: '3rd Year', order_index: 2 },
       { name: 'Divita Joshi', position: 'Secretary', department: 'Information Technology', year: '3rd Year', order_index: 3 },
       { name: 'Devanshu Gupta', position: 'Treasurer', department: 'Computer Science', year: '2nd Year', order_index: 4 },
-      { name: 'Ayush', position: 'Webmaster', department: 'CSE', year: '2nd Year', order_index: 7 },
-      { name: 'Arjun Singh', position: 'Technical Head', department: 'CSE', year: '3rd Year', order_index: 5 },
-      { name: 'Kavya Reddy', position: 'Event Coordinator', department: 'IT', year: '3rd Year', order_index: 6 },
-    
-      { name: 'Ananya Joshi', position: 'PR & Outreach Head', department: 'CSE', year: '2nd Year', order_index: 8 },
+      { name: 'Ayush Gupta', position: 'Webmaster', department: 'CSE', year: '2nd Year', order_index: 7 },
     ];
 
     for (const bearer of bearers) {
